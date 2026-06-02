@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Zambia Plant Disease Detector - Real AI Identification</title>
+    <title>Zambia Plant Disease Detector - Real AI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
-        <!-- Header -->
+        <!-- Header with Coat of Arms -->
         <div class="header">
             <div class="coat-of-arms">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Coat_of_arms_of_Zambia.svg/1200px-Coat_of_arms_of_Zambia.svg.png" alt="Zambia Coat of Arms">
             </div>
             <div class="title-section">
                 <h1 id="appTitle">🇿🇲 Zambia Plant Disease Detector</h1>
-                <p id="appSubtitle">Real AI Plant Recognition</p>
+                <p id="appSubtitle">AI-Powered Plant Recognition</p>
             </div>
         </div>
 
@@ -33,27 +33,28 @@
             </button>
         </div>
 
-        <!-- API Status -->
+        <!-- AI Model Status -->
         <div class="api-status" id="apiStatus">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <span id="apiStatusText">AI Service Ready</span>
+            <i class="fas fa-microchip"></i>
+            <span id="apiStatusText">Loading AI Model...</span>
+            <div class="loader-small" id="modelLoader"></div>
         </div>
 
-        <!-- Stats Bar -->
+        <!-- Stats -->
         <div class="stats-bar">
             <div class="stat">
                 <i class="fas fa-leaf"></i>
                 <span id="scansCount">0</span>
-                <small>Scans Today</small>
+                <small>Plants ID'd</small>
             </div>
             <div class="stat">
-                <i class="fas fa-check-circle"></i>
-                <span id="accuracyRate">96</span>
-                <small>Accuracy %</small>
+                <i class="fas fa-brain"></i>
+                <span id="modelStatus">Loading</span>
+                <small>AI Status</small>
             </div>
         </div>
 
-        <!-- Camera Section -->
+        <!-- Camera -->
         <div class="camera-card">
             <div class="video-container">
                 <video id="video" autoplay playsinline muted></video>
@@ -82,28 +83,28 @@
         <div id="resultSection" class="result-section" style="display:none;">
             <div class="loading" id="loading">
                 <div class="spinner"></div>
-                <p>Analyzing with AI...</p>
-                <p>Please wait</p>
+                <p id="analyzingText">Analyzing with AI...</p>
             </div>
             <div id="resultContent"></div>
         </div>
 
-        <!-- Info Section -->
+        <!-- Info -->
         <div class="info-card">
             <div class="info-header">
                 <i class="fas fa-info-circle"></i>
-                <h3>How AI Plant Recognition Works</h3>
+                <h3>How to Use</h3>
             </div>
-            <p style="font-size:13px; color:#666; line-height:1.5;">
-                This app uses real AI to identify plants from photos. The AI model has been trained on 
-                over 10,000 plant images including Zambian crops. For best results, take clear photos 
-                of leaves in natural daylight.
-            </p>
+            <ol style="margin-left: 20px; line-height: 1.8;">
+                <li>Click "Start Camera" and allow access</li>
+                <li>Take a clear photo of the plant leaf</li>
+                <li>AI will identify the plant and suggest treatments</li>
+            </ol>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+    <!-- Load TensorFlow.js and MobileNet with proper error handling -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
