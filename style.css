@@ -1,23 +1,576 @@
-/* API Status Bar */
+/* ============================================
+   ZAMBIA PLANT DISEASE DETECTOR - COMPLETE CSS
+   Combined: MTN Style + Zambia Theme + Animations
+   ============================================ */
+
+/* ========== RESET & BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #005F3C 0%, #008C55 100%);
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f5f5f5;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* ========== HEADER WITH COAT OF ARMS ========== */
+.header {
+    background: linear-gradient(135deg, #004D2E 0%, #006B3F 100%);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.coat-of-arms {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.coat-of-arms img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.title-section {
+    flex: 1;
+    text-align: left;
+}
+
+.title-section h1 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    font-weight: 700;
+    animation: fadeInDown 0.5s ease;
+}
+
+.title-section p {
+    font-size: 0.8em;
+    opacity: 0.9;
+}
+
+/* ========== LANGUAGE BAR ========== */
+.language-bar {
+    background: white;
+    padding: 12px 20px;
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.lang-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.lang-btn i {
+    font-size: 16px;
+}
+
+.lang-btn.active {
+    background: #006B3F;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,107,63,0.3);
+}
+
+.lang-btn:hover:not(.active) {
+    background: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* ========== API STATUS BAR ========== */
 .api-status {
     background: #e8f4f8;
     margin: 10px 20px;
-    padding: 8px 15px;
-    border-radius: 50px;
+    padding: 10px 15px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
+    gap: 10px;
+    font-size: 13px;
+    border-left: 4px solid #006B3F;
+    transition: all 0.3s ease;
 }
 
 .api-status i {
-    font-size: 14px;
+    font-size: 16px;
     color: #006B3F;
 }
 
-/* Toast animations */
+.loader-small {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #006B3F;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+/* ========== STATS BAR ========== */
+.stats-bar {
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat i {
+    font-size: 28px;
+    color: #006B3F;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+}
+
+.stat small {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ========== CAMERA CARD ========== */
+.camera-card {
+    background: white;
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.video-container {
+    position: relative;
+    background: #000;
+    height: 400px;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.camera-overlay i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.camera-overlay p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ========== BUTTONS ========== */
+.button-group {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn i {
+    font-size: 18px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #006B3F, #004D2E);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,107,63,0.3);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #FF8C00, #E67600);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,140,0,0.3);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ========== RESULT SECTION ========== */
+.result-section {
+    padding: 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #006B3F;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.result-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease;
+}
+
+.result-image {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.plant-icon {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.plant-icon i {
+    font-size: 50px;
+    color: #006B3F;
+}
+
+.plant-name {
+    color: #006B3F;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.disease-name {
+    color: #FF8C00;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.local-name {
+    color: #FFA000;
+    font-size: 1em;
+    margin-bottom: 15px;
+    font-style: italic;
+    text-align: center;
+}
+
+.confidence-badge {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.confidence-badge div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+/* ========== TREATMENT SECTIONS ========== */
+.treatment {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.treatment-chemical {
+    background: #e8f4f8;
+    border-left: 4px solid #3498db;
+}
+
+.treatment-organic {
+    background: #d5f4e6;
+    border-left: 4px solid #27ae60;
+}
+
+.treatment-prevention {
+    background: #FFF3E0;
+    border-left: 4px solid #FF8C00;
+}
+
+.zambia-tip {
+    background: #FFF3E0;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #FFA000;
+}
+
+/* ========== INFO CARD ========== */
+.info-card {
+    background: white;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #006B3F;
+}
+
+.info-header i {
+    font-size: 28px;
+    color: #006B3F;
+}
+
+.info-header h3 {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.steps {
+    margin-bottom: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background: #006B3F;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.step-text strong {
+    display: block;
+    color: #333;
+}
+
+.step-text p {
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+}
+
+.contact-card {
+    background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-card i {
+    font-size: 30px;
+    color: #FF8C00;
+}
+
+.crop-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.crop-tag {
+    background: linear-gradient(135deg, #198A00, #0F5C00);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.tip-box {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #ffc107;
+}
+
+.tip-box ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.note {
+    margin-top: 15px;
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+/* ========== TOAST NOTIFICATIONS ========== */
 .toast {
-    animation: slideUp 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 50px;
+    z-index: 1000;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-size: 14px;
+    text-align: center;
+    max-width: 80%;
+    white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+    .toast {
+        white-space: normal;
+        max-width: 90%;
+    }
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideUp {
@@ -31,10 +584,179 @@
     }
 }
 
-.result-image {
-    width: 100%;
-    max-height: 250px;
-    object-fit: contain;
-    border-radius: 15px;
-    margin: 10px 0;
+@keyframes slideDown {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .btn {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .title-section h1 {
+        font-size: 1em;
+    }
+    
+    .plant-name {
+        font-size: 1.3em;
+    }
+    
+    .disease-name {
+        font-size: 1.1em;
+    }
+    
+    .stat i {
+        font-size: 22px;
+    }
+    
+    .stat span {
+        font-size: 18px;
+    }
+    
+    .video-container {
+        height: 350px;
+    }
+    
+    .camera-section,
+    .result-section,
+    .info-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .language-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .lang-btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    .stats-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .stat {
+        flex: 1;
+        min-width: 80px;
+    }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-center {
+    text-align: center;
+}
+
+.text-success {
+    color: #27ae60;
+}
+
+.text-warning {
+    color: #f39c12;
+}
+
+.text-danger {
+    color: #e74c3c;
+}
+
+.bg-success {
+    background: #d5f4e6;
+}
+
+.bg-warning {
+    background: #fff3cd;
+}
+
+.bg-danger {
+    background: #fee;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+/* ========== ZAMBIA FLAG ELEMENT ========== */
+.zambia-flag {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 60px;
+    height: 40px;
+    background: linear-gradient(to bottom, #198A00 33%, #FFA000 33%, #FFA000 66%, #198A00 66%);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.zambia-flag::before {
+    content: "🇿🇲";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+/* ========== SCROLL BAR STYLING ========== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #006B3F;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #004D2E;
 }
